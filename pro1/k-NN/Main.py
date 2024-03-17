@@ -13,7 +13,9 @@ def main(k, trSet, tstSet):
 
     results = kNN.evaluate(v_test)
 
-    accuracy = (float)(np.mean(results == cl_test))
+    correct = sum(1 for pred, true in zip(results, cl_test) if pred == true)
+    total_samples = len(cl_test)
+    accuracy = correct / total_samples
 
     print("Classified with accuracy:",accuracy * 100, "%")
 
