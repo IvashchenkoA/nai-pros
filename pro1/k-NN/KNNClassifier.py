@@ -1,5 +1,7 @@
 import numpy as np
 from collections import Counter
+
+
 class KNNClassifier:
     def __init__(self, k, v_train, cl_train):
         self.k = k

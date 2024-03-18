@@ -2,6 +2,7 @@ import csv
 import numpy as np
 import os
 
+
 def main(k, trSet, tstSet):
     v_train = readVec(trSet)
     cl_train = readClass(trSet)
@@ -9,15 +10,15 @@ def main(k, trSet, tstSet):
     cl_test = readClass(tstSet)
 
     from KNNClassifier import KNNClassifier
-    kNN = KNNClassifier(k ,v_train ,cl_train)
+    kNN = KNNClassifier(k, v_train, cl_train)
 
     results = kNN.evaluate(v_test)
 
-    correct = sum(1 for pred, true in zip(results, cl_test) if pred == true)
+    correct_predictions = sum(1 for pred, true in zip(results, cl_test) if pred == true)
     total_samples = len(cl_test)
-    accuracy = correct / total_samples
+    accuracy = correct_predictions / total_samples
 
-    print("Classified with accuracy:",accuracy * 100, "%")
+    print("Classified with accuracy:", accuracy * 100, "%")
 
     while True:
         usrVector = input("Enter a custom vector to classify as comma - separated values"
@@ -53,4 +54,4 @@ if __name__ == "__main__":
     k = int(input("Enter the value of k:"))
     trainingSet = input("Enter the name of a file with training data:")
     testSet = input("Enter the name of a file with test data:")
-    main(k,trainingSet,testSet)
+    main(k, trainingSet, testSet)
