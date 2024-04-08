@@ -8,7 +8,6 @@ class KNNClassifier:
         self.v_train = v_train
         self.cl_train = cl_train
 
-
     def evaluate(self, v_test):
         results = []
         for v in v_test:
